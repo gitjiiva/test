@@ -1,0 +1,17 @@
+version: '3'
+services:
+  webserver:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "9003:80"
+    volumes:
+      - nginx-data:/app-data
+    networks:
+      - qtree-network
+networks:
+  qtree-network:
+    drive: bridge
+volumes:
+  nginx-data:
